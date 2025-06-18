@@ -1,0 +1,20 @@
+# 核心科学计算与深度学习框架
+numpy
+torch>=1.10.0  # 推荐使用较新的PyTorch版本以支持混合精度等功能
+torchvision
+torchaudio
+
+# 数据处理与文件I/O
+h5py          # 用于读写 HDF5 数据文件
+netCDF4       # 用于读取原始的NetCDF海洋数据
+scikit-image  # 用于图像处理，如 find_contours 和 label
+
+# GPU加速的数据增强
+kornia
+
+# 评估与可视化
+matplotlib
+cartopy       # 用于绘制地理信息地图
+
+# 进度条与日志
+tqdm          # 提供美观的进度条

@@ -54,15 +54,15 @@ pip install -r requirements.txt
 ### 2. 数据准备
 
 -   **原始数据**: 将高分辨率的海洋模式NetCDF数据（如MOM6输出）放置在指定目录。
--   **标签生成**: 运行 `hybrid_detection/main.py` 来生成用于训练的涡旋标签，并将其与原始物理场一同打包成HDF5文件。请确保HDF5文件结构与 `dataset.py` 中的要求一致。
--   **路径配置**: 更新 `intelligent_identification/config.py` 文件中的 `HDF5_FILE` 路径，使其指向您生成的HDF5数据文件。
+-   **标签生成**: 运行 `train/main.py` 来生成用于训练的涡旋标签，并将其与原始物理场一同打包成HDF5文件。请确保HDF5文件结构与 `dataset.py` 中的要求一致。
+-   **路径配置**: 更新 `train/config.py` 文件中的 `HDF5_FILE` 路径，使其指向您生成的HDF5数据文件。
 
 ### 3. 模型训练
 
 配置好 `config.py` 中的训练参数（如年份、批大小、学习率等）后，运行主训练脚本：
 
 ```bash
-python intelligent_identification/train.py
+python train/train.py
 ```
 训练日志、TensorBoard记录和最佳模型权重将保存在 `runs/` 和 `checkpoints/` 目录下。
 
@@ -71,7 +71,7 @@ python intelligent_identification/train.py
 训练完成后，可使用评估脚本对模型性能进行可视化分析。在 `evaluate.py` 中设置您想要评估的日期 (`TARGET_DATE_STR`)，然后运行：
 
 ```bash
-python intelligent_identification/evaluate.py
+python eval/evaluate.py
 ```
 脚本将生成对比图，展示模型识别结果与真实标签之间的差异，保存在 `evaluation_plots/` 目录中。
 
